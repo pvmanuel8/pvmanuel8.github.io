@@ -4,10 +4,7 @@ import { useEffect, useRef, useState } from "react";
  * Componente Wrapper para animación de entrada al hacer scroll.
  * Utiliza la API nativa `IntersectionObserver` para detectar cuando
  * el elemento entra en la pantalla y desencadena una transición CSS suave.
- * 
- * @param {ReactNode} children - Elementos hijos a los que se aplicará la animación.
- * @param {string} className - Clases CSS adicionales opcionales.
- * @param {object} style - Estilos en línea adicionales.
+ * Incluye fallback automático para garantizar visibilidad inmediata.
  */
 export default function Reveal({ children, className = "", style = {} }) {
   const ref = useRef(null);
@@ -17,23 +14,32 @@ export default function Reveal({ children, className = "", style = {} }) {
     const el = ref.current;
     if (!el) return;
 
-    // Observador para detectar cuándo el elemento es visible en el viewport
+    if (!("IntersectionObserver" in window)) {
+      setInView(true);
+      return;
+    }
+
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
           if (e.isIntersecting) {
-            setInView(true); // Activa la visibilidad
-            io.unobserve(e.target); // Detiene la observación una vez animado
+            setInView(true);
+            io.unobserve(e.target);
           }
         });
       },
-      { threshold: 0.15 } // Se activa cuando el 15% del elemento es visible
+      { threshold: 0.01 }
     );
 
     io.observe(el);
 
-    // Limpieza al desmontar el componente
-    return () => io.disconnect();
+    // Fallback de seguridad: asegurar visibilidad a los 400ms por si el observer no se dispara
+    const fallbackTimer = setTimeout(() => setInView(true), 400);
+
+    return () => {
+      io.disconnect();
+      clearTimeout(fallbackTimer);
+    };
   }, []);
 
   return (
