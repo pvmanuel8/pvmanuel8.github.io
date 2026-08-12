@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://pvmanuel8.github.io/Portfolio",
+  "homepage": "https://pvmanuel8.github.io",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
