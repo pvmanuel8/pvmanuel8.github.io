@@ -1,0 +1,234 @@
+/**
+ * ==========================================
+ * HOJA DE ESTILOS PRINCIPAL DEL PORTFOLIO
+ * ==========================================
+ * Importación de tipografías de Google Fonts y definición del sistema de diseño
+ * utilizando Variables CSS nativas para colores, fuentes, bordes y transiciones.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* Variables globales de diseño (Paleta de colores oscura, bordes y fuentes) */
+:root {
+  --bg: #0B0E14;
+  --bg-alt: #0E1219;
+  --surface: #12161F;
+  --surface-2: #171C27;
+  --border: #232838;
+  --border-soft: #1A1F2C;
+  --text: #E7E9EE;
+  --text-muted: #8891A3;
+  --text-faint: #545C6E;
+  --accent: #FFB454;
+  --accent-2: #7DD3FC;
+  --accent-soft: rgba(255, 180, 84, 0.12);
+}
+
+/* Tipografía de código monoespaciada */
+.pf-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Tipografía para encabezados principales */
+.pf-h {
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+/* Subtítulos descriptivos pequeños sobre encabezados */
+.pf-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.pf-eyebrow::before {
+  content: '';
+  width: 16px;
+  height: 1px;
+  background: var(--accent);
+}
+
+/* Estilos de Botones Reutilizables */
+.pf-btn {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  padding: 12px 22px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: all .25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+/* Botón Primario con fondo de acento cálido */
+.pf-btn-primary {
+  background: var(--accent);
+  color: #14100A;
+  border-color: var(--accent);
+  font-weight: 600;
+}
+
+.pf-btn-primary:hover {
+  background: #ffc478;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 180, 84, 0.25);
+}
+
+/* Botón Fantasma/Transparente con borde */
+.pf-btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.pf-btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* Puntos de navegación en la barra lateral fija (Gutter) */
+.pf-gutter-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+  cursor: pointer;
+  position: relative;
+  transition: background .3s ease, transform .3s ease;
+}
+
+/* Tooltip emergente que muestra el nombre de la sección al pasar el ratón */
+.pf-gutter-dot::after {
+  content: attr(data-label);
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translate(-4px, -50%);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--text-faint);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.pf-gutter-dot:hover::after {
+  opacity: 1;
+  transform: translate(0, -50%);
+}
+
+.pf-gutter-dot.active {
+  background: var(--accent);
+  transform: scale(1.3);
+}
+
+/* Etiqueta / Pill para tecnologías */
+.pf-pill {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12.5px;
+  padding: 7px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  transition: all .2s ease;
+  cursor: default;
+}
+
+.pf-pill:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-soft);
+  transform: translateY(-2px);
+}
+
+/* Tarjeta interactiva de proyectos */
+.pf-card:hover {
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* Ocultar barra de desplazamiento por defecto manteniendo el scroll funcional */
+.pf-track {
+  scrollbar-width: none;
+}
+.pf-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Puntos indicadoras de tarjeta activa en el carrusel de proyectos */
+.pf-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: all .25s ease;
+  cursor: pointer;
+}
+
+.pf-dot.active {
+  background: var(--accent);
+  width: 20px;
+  border-radius: 4px;
+}
+
+/* Cursor parpadeante para el efecto de tipeado */
+.pf-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 1.1em;
+  background: var(--accent);
+  margin-left: 2px;
+  vertical-align: -2px;
+  animation: pf-blink 1s step-end infinite;
+}
+
+@keyframes pf-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Transición suave para items de educación al pasar el cursor */
+.pf-edu-item:hover {
+  border-color: var(--accent) !important;
+  transform: translateX(4px);
+}
+
+/* Diseños responsivos para móviles y tablets */
+@media (max-width: 900px) {
+  .pf-gutter {
+    display: none !important;
+  }
+  .pf-main {
+    margin-left: 0 !important;
+  }
+  .pf-nav {
+    left: 0 !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .pf-navlinks {
+    display: none !important;
+  }
+}
+
+/* Respeto por preferencias de movimiento reducido en el sistema operativo */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

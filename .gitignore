@@ -1,0 +1,21 @@
+# Dependencias de Node (No subir a GitHub)
+node_modules
+.pnpm-store
+
+# Salida de compilación (Dist)
+dist
+dist-ssr
+
+# Logs y depuración
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos de entorno y editor
+.env
+.env.local
+.DS_Store
+.vscode
+.idea
