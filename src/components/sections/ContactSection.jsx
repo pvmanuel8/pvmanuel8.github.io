@@ -12,6 +12,7 @@ export default function ContactSection({ sectionRef }) {
       <section
         id="contact"
         ref={sectionRef}
+        className="pf-section"
         style={{
           maxWidth: 1120,
           margin: "0 auto",
@@ -40,7 +41,7 @@ export default function ContactSection({ sectionRef }) {
           </p>
 
           {/* Enlaces de contacto y redes sociales */}
-          <div style={{ marginTop: 32, display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
+          <div className="pf-contact-links" style={{ marginTop: 32, display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
             <a href="mailto:pvmanuel8@gmail.com" className="pf-btn pf-btn-primary">
               pvmanuel8@gmail.com
             </a>
@@ -56,7 +57,7 @@ export default function ContactSection({ sectionRef }) {
 
       {/* Pie de página (Footer) */}
       <footer
-        className="pf-mono"
+        className="pf-mono pf-footer"
         style={{
           padding: "30px 40px",
           display: "flex",

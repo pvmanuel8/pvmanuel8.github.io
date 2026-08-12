@@ -12,6 +12,7 @@ export default function AboutSection({ sectionRef }) {
     <section
       id="about"
       ref={sectionRef}
+      className="pf-section"
       style={{
         maxWidth: 1120,
         margin: "0 auto",
@@ -19,7 +20,7 @@ export default function AboutSection({ sectionRef }) {
         borderTop: "1px solid var(--border-soft)",
       }}
     >
-      <div style={{ display: "grid", gridTemplateColumns: "0.9fr 1.1fr", gap: 60 }}>
+      <div className="pf-about-grid" style={{ display: "grid", gridTemplateColumns: "0.9fr 1.1fr", gap: 60 }}>
         {/* Columna Izquierda: Encabezado */}
         <Reveal>
           <div className="pf-eyebrow">01 · Sobre mí</div>
@@ -38,7 +39,7 @@ export default function AboutSection({ sectionRef }) {
           </p>
 
           {/* Cuadrícula de tarjetas con métricas destacadas */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginTop: 28 }}>
+          <div className="pf-stats-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginTop: 28 }}>
             {STATS.map((stat) => (
               <div
                 key={stat.label}

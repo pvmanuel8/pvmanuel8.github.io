@@ -206,7 +206,11 @@
   transform: translateX(4px);
 }
 
-/* Diseños responsivos para móviles y tablets */
+/* ==========================================
+   DISEÑOS RESPONSIVOS PARA TABLETS Y MÓVILES
+   ========================================== */
+
+/* Tablets y pantallas medianas (hasta 900px) */
 @media (max-width: 900px) {
   .pf-gutter {
     display: none !important;
@@ -217,11 +221,67 @@
   .pf-nav {
     left: 0 !important;
   }
+
+  /* Hero: de 2 columnas a 1 columna */
+  .pf-hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+
+  /* Sobre mí: de 2 columnas a 1 columna */
+  .pf-about-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  /* Stack: de 3 columnas a 1 columna */
+  .pf-stack-grid {
+    grid-template-columns: 1fr !important;
+  }
 }
 
+/* Móviles (hasta 700px) */
 @media (max-width: 700px) {
   .pf-navlinks {
     display: none !important;
+  }
+
+  /* Reducir padding general de las secciones */
+  .pf-section {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* Hero: ajustar padding superior y tamaño mínimo */
+  .pf-hero {
+    padding-top: 100px !important;
+    padding-bottom: 40px !important;
+    min-height: auto !important;
+  }
+
+  /* Estadísticas: mantener en 2 columnas compactas */
+  .pf-stats-grid {
+    gap: 12px !important;
+  }
+
+  /* Educación: apilar fecha debajo del título */
+  .pf-edu-item {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+
+  /* Contacto: botones en columna */
+  .pf-contact-links {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  /* Footer: centrar en columna */
+  .pf-footer {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 6px !important;
   }
 }
 

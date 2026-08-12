@@ -12,6 +12,7 @@ export default function StackSection({ sectionRef }) {
     <section
       id="stack"
       ref={sectionRef}
+      className="pf-section"
       style={{
         maxWidth: 1120,
         margin: "0 auto",
@@ -27,7 +28,7 @@ export default function StackSection({ sectionRef }) {
       </Reveal>
 
       {/* Grid de 3 columnas para cada grupo de tecnologías */}
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 24, marginTop: 36 }}>
+      <div className="pf-stack-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 24, marginTop: 36 }}>
         {STACK_GROUPS.map((group) => (
           <Reveal key={group.category}>
             <div

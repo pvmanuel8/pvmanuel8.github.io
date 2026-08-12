@@ -12,6 +12,7 @@ export default function ExperienceSection({ sectionRef }) {
     <section
       id="exp"
       ref={sectionRef}
+      className="pf-section"
       style={{
         maxWidth: 1120,
         margin: "0 auto",

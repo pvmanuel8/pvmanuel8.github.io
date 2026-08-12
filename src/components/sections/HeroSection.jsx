@@ -51,6 +51,7 @@ export default function HeroSection({ sectionRef, scrollToSection }) {
     <section
       id="hero"
       ref={sectionRef}
+      className="pf-hero pf-section"
       style={{
         maxWidth: 1120,
         margin: "0 auto",
@@ -61,11 +62,11 @@ export default function HeroSection({ sectionRef, scrollToSection }) {
         justifyContent: "center",
       }}
     >
-      <div style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: 64, alignItems: "center" }}>
+      <div className="pf-hero-grid" style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: 64, alignItems: "center" }}>
         <div>
           {/* Ubicación y estado laboral */}
           <div className="pf-eyebrow">Vilagarcía de Arousa, España — disponible en remoto</div>
-          
+
           {/* Nombre y Título principal */}
           <h1 className="pf-h" style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", fontWeight: 700, lineHeight: 1.05 }}>
             Manuel Piñeiro
@@ -79,7 +80,7 @@ export default function HeroSection({ sectionRef, scrollToSection }) {
 
           {/* Resumen o biografía corta */}
           <p style={{ marginTop: 22, color: "var(--text-muted)", fontSize: "1.05rem", maxWidth: "46ch" }}>
-            Construyo productos web rápidos, accesibles y con detalles que se notan. Del prototipo a producción, sin perder de vista a quien lo usa.
+            Construyo productos accesibles y con detalles que se notan. Del prototipo a producción, sin perder de vista a quien lo usa.
           </p>
 
           {/* Botones de acción directos */}
