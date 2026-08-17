@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Reveal from "../common/Reveal";
 import Terminal from "./Terminal";
+import ScrambleText from "../common/ScrambleText";
 import { ROLES } from "../../data/portfolioData";
 
 /**
@@ -67,9 +68,9 @@ export default function HeroSection({ sectionRef, scrollToSection }) {
           {/* Ubicación y estado laboral */}
           <div className="pf-eyebrow">Vilagarcía de Arousa, España</div>
 
-          {/* Nombre y Título principal */}
+          {/* Nombre y Título principal con animación Scramble */}
           <h1 className="pf-h" style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", fontWeight: 700, lineHeight: 1.05 }}>
-            Manuel Piñeiro
+            <ScrambleText text="Manuel Piñeiro" scrambleOnHover={true} />
           </h1>
 
           {/* Texto dinámico con cursor parpadeante */}

@@ -11,7 +11,7 @@ import { SECTIONS, SECTION_LABELS } from "../../data/portfolioData";
  * @param {number} scrollPct - Porcentaje de avance de scroll (0 - 100).
  * @param {function} scrollToSection - Función callback para desplazarse suavemente a una sección.
  */
-export default function Navigation({ activeSection, scrollPct, scrollToSection }) {
+export default function Navigation({ activeSection, scrollPct, scrollToSection, onOpenCmdPalette }) {
   return (
     <>
       {/* Barra de progreso de desplazamiento superior */}
@@ -56,7 +56,7 @@ export default function Navigation({ activeSection, scrollPct, scrollToSection }
         ))}
       </nav>
 
-      {/* Cabecera superior con logotipo y enlaces */}
+      {/* Cabecera superior con logotipo, enlaces y botón Cmd+K */}
       <header
         className="pf-nav"
         style={{
@@ -79,24 +79,54 @@ export default function Navigation({ activeSection, scrollPct, scrollToSection }
           manuel<span style={{ color: "var(--accent)" }}>.</span>dev
         </div>
 
-        {/* Enlaces a las secciones */}
-        <div
-          className="pf-navlinks pf-mono"
-          style={{ display: "flex", gap: 28, fontSize: 13, color: "var(--text-muted)" }}
-        >
-          {SECTIONS.slice(1).map((id) => (
-            <a
-              key={id}
-              href={`#${id}`}
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection(id);
-              }}
-              style={{ color: "inherit" }}
-            >
-              {SECTION_LABELS[id]}
-            </a>
-          ))}
+        {/* Enlaces a las secciones + Botón Cmd + K */}
+        <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
+          <div
+            className="pf-navlinks pf-mono"
+            style={{ display: "flex", gap: 28, fontSize: 13, color: "var(--text-muted)" }}
+          >
+            {SECTIONS.slice(1).map((id) => (
+              <a
+                key={id}
+                href={`#${id}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(id);
+                }}
+                style={{ color: "inherit" }}
+              >
+                {SECTION_LABELS[id]}
+              </a>
+            ))}
+          </div>
+
+          <button
+            className="pf-mono"
+            onClick={onOpenCmdPalette}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 6,
+              fontSize: 11,
+              background: "var(--surface)",
+              color: "var(--text-muted)",
+              border: "1px solid var(--border)",
+              padding: "5px 10px",
+              borderRadius: 6,
+              cursor: "pointer",
+              transition: "all 0.2s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = "var(--accent)";
+              e.currentTarget.style.color = "var(--accent)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = "var(--border)";
+              e.currentTarget.style.color = "var(--text-muted)";
+            }}
+          >
+            <span style={{ color: "var(--accent)" }}>⌘</span> Cmd+K
+          </button>
         </div>
       </header>
     </>

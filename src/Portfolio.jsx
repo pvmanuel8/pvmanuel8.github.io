@@ -4,7 +4,12 @@ import "./styles/portfolio.css";
 // Importación de datos estáticos
 import { SECTIONS } from "./data/portfolioData";
 
-// Importación de componentes modulares
+// Importación de componentes de efectos especiales e interactividad
+import CyberGridCanvas from "./components/common/CyberGridCanvas";
+import TechCursor from "./components/common/TechCursor";
+import CommandPalette from "./components/common/CommandPalette";
+
+// Importación de componentes modulares de sección
 import Navigation from "./components/layout/Navigation";
 import HeroSection from "./components/sections/HeroSection";
 import AboutSection from "./components/sections/AboutSection";
@@ -22,6 +27,7 @@ import ContactSection from "./components/sections/ContactSection";
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("hero");
   const [scrollPct, setScrollPct] = useState(0);
+  const [isCmdOpen, setIsCmdOpen] = useState(false);
 
   // Diccionario de referencias para observar qué sección está visible en pantalla
   const sectionRefs = useRef({});
@@ -73,6 +79,19 @@ export default function Portfolio() {
         overflowX: "hidden",
       }}
     >
+      {/* 1. Cursor Cibernético Personalizado */}
+      <TechCursor />
+
+      {/* 2. Fondo de Malla de Partículas Cyber Interactivo */}
+      <CyberGridCanvas />
+
+      {/* 3. Paleta de Comandos Flotante (Ctrl + K) */}
+      <CommandPalette
+        isOpen={isCmdOpen}
+        onClose={() => setIsCmdOpen(false)}
+        scrollToSection={scrollToSection}
+      />
+
       {/* Fondo ambiental decorativo: cuadrícula y resplandor radial */}
       <div
         style={{
@@ -85,7 +104,7 @@ export default function Portfolio() {
           backgroundSize: "64px 64px",
           WebkitMaskImage: "radial-gradient(ellipse 70% 60% at 50% 0%, #000 40%, transparent 90%)",
           maskImage: "radial-gradient(ellipse 70% 60% at 50% 0%, #000 40%, transparent 90%)",
-          opacity: 0.5,
+          opacity: 0.35,
         }}
       />
       <div
@@ -103,11 +122,12 @@ export default function Portfolio() {
         }}
       />
 
-      {/* Componente de Navegación (Header + Gutter + Barra de progreso) */}
+      {/* Componente de Navegación (Header + Gutter + Barra de progreso + Cmd+K trigger) */}
       <Navigation
         activeSection={activeSection}
         scrollPct={scrollPct}
         scrollToSection={scrollToSection}
+        onOpenCmdPalette={() => setIsCmdOpen(true)}
       />
 
       {/* Ámbito Principal de Contenido */}
