@@ -76,13 +76,13 @@ export const PROJECTS = [
   {
     n: "01",
     bg: "linear-gradient(135deg,#2A2416,#3A2E12)",
-    // image: "/assets/gestoria.png", // Guarda tu imagen en public/assets/ y descomenta esta línea
+    image: "/assets/gestoria.png",
     tag: "SaaS B2B & IA",
     title: "GestorIA",
     desc: "Plataforma de automatización documental. Integra arquitectura RAG, LLMs locales y procesamiento asíncrono de correos.",
     stack: ["Python", "FastAPI", "React", "PostgreSQL"],
-    caseLink: "#", // Enlace pagina web
-    //githubLink: "https://github.com/pvmanuel8",
+    demoLink: "#",
+    githubLink: "https://github.com/pvmanuel8",
   },
 ];
 

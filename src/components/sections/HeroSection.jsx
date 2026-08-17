@@ -65,7 +65,7 @@ export default function HeroSection({ sectionRef, scrollToSection }) {
       <div className="pf-hero-grid" style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: 64, alignItems: "center" }}>
         <div>
           {/* Ubicación y estado laboral */}
-          <div className="pf-eyebrow">Vilagarcía de Arousa, España — disponible en remoto</div>
+          <div className="pf-eyebrow">Vilagarcía de Arousa, España</div>
 
           {/* Nombre y Título principal */}
           <h1 className="pf-h" style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", fontWeight: 700, lineHeight: 1.05 }}>

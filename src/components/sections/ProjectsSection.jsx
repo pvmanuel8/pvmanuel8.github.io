@@ -167,7 +167,8 @@ export default function ProjectsSection({ sectionRef }) {
               onMouseLeave={() => resetTilt(i)}
               style={{
                 flex: "0 0 auto",
-                width: 340,
+                width: PROJECTS.length < 3 ? 420 : 340,
+                maxWidth: "100%",
                 scrollSnapAlign: "start",
                 background: "var(--surface)",
                 border: "1px solid var(--border)",
@@ -180,69 +181,90 @@ export default function ProjectsSection({ sectionRef }) {
               {/* Imagen/Cabecera visual del proyecto con degradado */}
               <div
                 style={{
-                  height: 170,
+                  height: 240,
                   position: "relative",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  background: p.image ? `url(${p.image}) center/cover no-repeat` : p.bg,
+                  background: p.image ? `url(${p.image}) 0% 0% / 125% auto no-repeat` : p.bg,
                 }}
               >
-                <div
-                  style={{
-                    position: "absolute",
-                    inset: 0,
-                    background: "linear-gradient(180deg, transparent 40%, rgba(18,22,31,0.9) 100%)",
-                  }}
-                />
-                <span
-                  className="pf-h"
-                  style={{
-                    position: "relative",
-                    zIndex: 1,
-                    fontWeight: 700,
-                    fontSize: "2.2rem",
-                    color: "rgba(255,255,255,0.85)",
-                  }}
-                >
-                  {p.n}
-                </span>
+                {!p.image && (
+                  <>
+                    <div
+                      style={{
+                        position: "absolute",
+                        inset: 0,
+                        background: "linear-gradient(180deg, transparent 40%, rgba(18,22,31,0.9) 100%)",
+                      }}
+                    />
+                    <span
+                      className="pf-h"
+                      style={{
+                        position: "relative",
+                        zIndex: 1,
+                        fontWeight: 700,
+                        fontSize: "2.2rem",
+                        color: "rgba(255,255,255,0.85)",
+                      }}
+                    >
+                      {p.n}
+                    </span>
+                  </>
+                )}
+                {p.image && (
+                  <div
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      background: "linear-gradient(180deg, transparent 75%, rgba(18,22,31,0.3) 100%)",
+                    }}
+                  />
+                )}
               </div>
 
               {/* Información del Proyecto */}
-              <div style={{ padding: 22 }}>
-                <div
-                  className="pf-mono"
-                  style={{
-                    fontSize: 11,
-                    color: "var(--accent)",
-                    textTransform: "uppercase",
-                    letterSpacing: "0.05em",
-                  }}
-                >
-                  {p.tag}
+              <div style={{ padding: "24px 22px 22px" }}>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
+                  <span
+                    className="pf-mono"
+                    style={{
+                      fontSize: 11,
+                      color: "var(--accent)",
+                      background: "var(--accent-soft)",
+                      border: "1px solid rgba(255, 180, 84, 0.25)",
+                      padding: "3px 10px",
+                      borderRadius: 20,
+                      fontWeight: 500,
+                      textTransform: "uppercase",
+                      letterSpacing: "0.05em",
+                    }}
+                  >
+                    {p.tag}
+                  </span>
                 </div>
 
-                <div className="pf-h" style={{ fontSize: "1.15rem", fontWeight: 600, marginTop: 8 }}>
+                <h3 className="pf-h" style={{ fontSize: "1.3rem", fontWeight: 700, marginTop: 12, color: "var(--text)" }}>
                   {p.title}
-                </div>
+                </h3>
 
-                <div style={{ color: "var(--text-muted)", fontSize: "0.9rem", marginTop: 8, lineHeight: 1.55 }}>
+                <p style={{ color: "var(--text-muted)", fontSize: "0.92rem", marginTop: 8, lineHeight: 1.6, margin: "8px 0 0" }}>
                   {p.desc}
-                </div>
+                </p>
 
                 {/* Tags de tecnologías del proyecto */}
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 14 }}>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 16 }}>
                   {p.stack.map((s) => (
                     <span
                       key={s}
                       className="pf-mono"
                       style={{
-                        fontSize: 10.5,
-                        color: "var(--text-faint)",
+                        fontSize: 11,
+                        color: "var(--text-muted)",
+                        background: "var(--surface-2)",
                         border: "1px solid var(--border-soft)",
-                        padding: "3px 8px",
-                        borderRadius: 12,
+                        padding: "3px 9px",
+                        borderRadius: 6,
                       }}
                     >
                       {s}
@@ -250,14 +272,50 @@ export default function ProjectsSection({ sectionRef }) {
                   ))}
                 </div>
 
-                {/* Enlaces al caso de estudio o repositorio */}
-                <div className="pf-mono" style={{ display: "flex", gap: 16, marginTop: 16, fontSize: 12 }}>
-                  <a href={p.caseLink} style={{ color: "var(--text-muted)" }}>
-                    Ver caso →
-                  </a>
-                  <a href={p.githubLink} target="_blank" rel="noreferrer" style={{ color: "var(--text-muted)" }}>
-                    GitHub
-                  </a>
+                {/* Enlaces de Acción: Probar Demo y Repositorio GitHub */}
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 22, paddingTop: 16, borderTop: "1px solid var(--border-soft)" }}>
+                  {(p.demoLink || p.caseLink) && (
+                    <a
+                      href={p.demoLink || p.caseLink}
+                      target={p.demoLink && p.demoLink !== "#" ? "_blank" : "_self"}
+                      rel="noreferrer"
+                      className="pf-btn pf-btn-primary"
+                      style={{
+                        flex: 1,
+                        justifyContent: "center",
+                        padding: "9px 16px",
+                        fontSize: 12.5,
+                        borderRadius: 8,
+                      }}
+                    >
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                      </svg>
+                      Probar Demo
+                    </a>
+                  )}
+
+                  {p.githubLink && (
+                    <a
+                      href={p.githubLink}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="pf-btn pf-btn-ghost"
+                      style={{
+                        flex: 1,
+                        justifyContent: "center",
+                        padding: "9px 16px",
+                        fontSize: 12.5,
+                        borderRadius: 8,
+                      }}
+                    >
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                        <path d="M9 18c-4.51 2-5-2-7-2" />
+                      </svg>
+                      GitHub
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
