@@ -176,6 +176,8 @@ export default function ProjectsSection({ sectionRef }) {
                 overflow: "hidden",
                 transition: "transform .35s ease, box-shadow .35s ease",
                 willChange: "transform",
+                display: "flex",
+                flexDirection: "column",
               }}
             >
               {/* Imagen/Cabecera visual del proyecto con degradado */}
@@ -224,7 +226,7 @@ export default function ProjectsSection({ sectionRef }) {
               </div>
 
               {/* Información del Proyecto */}
-              <div style={{ padding: "24px 22px 22px" }}>
+              <div style={{ padding: "24px 22px 22px", display: "flex", flexDirection: "column", flex: 1 }}>
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
                   <span
                     className="pf-mono"
@@ -273,7 +275,7 @@ export default function ProjectsSection({ sectionRef }) {
                 </div>
 
                 {/* Enlaces de Acción: Probar Demo y Repositorio GitHub */}
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 22, paddingTop: 16, borderTop: "1px solid var(--border-soft)" }}>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: "auto", paddingTop: 16, borderTop: "1px solid var(--border-soft)" }}>
                   {(p.demoLink || p.caseLink) && (
                     <a
                       href={p.demoLink || p.caseLink}
