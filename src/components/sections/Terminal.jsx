@@ -129,8 +129,8 @@ export default function Terminal({ onTriggerMatrix }) {
       case "stack":
         response = [
           { t: "⚡ Tech Stack Overview:", c: "var(--accent)" },
-          { t: "  • Backend:  Python, FastAPI, Java, PostgreSQL, MySQL", c: "var(--text)" },
-          { t: "  • Frontend: React, JavaScript, Next.js, HTML/CSS", c: "var(--text)" },
+          { t: "  • Backend:  Python, FastAPI, Java, Kotlin, PostgreSQL, MySQL, Sockets TCP", c: "var(--text)" },
+          { t: "  • Frontend: React, JavaScript, Next.js, Jetpack Compose, HTML/CSS", c: "var(--text)" },
           { t: "  • DevOps:   Docker, Git, Supabase, Vercel, Render", c: "var(--text)" },
         ];
         break;
@@ -141,6 +141,9 @@ export default function Terminal({ onTriggerMatrix }) {
           { t: "  [01] GestorIA - SaaS B2B de Automatización Documental e IA", c: "var(--text)" },
           { t: "       Stack: Python, FastAPI, React, PostgreSQL, RAG Architecture", c: "var(--text-faint)" },
           { t: "       GitHub: https://github.com/pvmanuel8", c: "var(--accent-2)" },
+          { t: "  [02] TicTacToe PSP - Tres en Raya Multijugador Cliente-Servidor", c: "var(--text)" },
+          { t: "       Stack: Kotlin, Sockets TCP, Jetpack Compose, Coroutines, StateFlow", c: "var(--text-faint)" },
+          { t: "       GitHub: https://github.com/pvmanuel8/TicTacToePSP", c: "var(--accent-2)" },
         ];
         break;
 

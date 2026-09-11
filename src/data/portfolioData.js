@@ -51,7 +51,7 @@ export const TERM_CODE = [
 // Estadísticas que se muestran en la sección "Sobre mí"
 export const STATS = [
   { number: "<1", label: "AÑO DE EXPERIENCIA" },
-  { number: "1", label: "PROYECTOS ENTREGADOS" },
+  { number: "2", label: "PROYECTOS ENTREGADOS" },
   { number: "30", label: "PERSONAS MENTORIZADAS" }
 ];
 
@@ -63,11 +63,11 @@ export const STACK_GROUPS = [
   },
   {
     category: "Backend",
-    items: ["Java", "Python", "PostgreSQL", "FastAPI", "MySQL"],
+    items: ["Java", "Kotlin", "Python", "PostgreSQL", "FastAPI", "MySQL"],
   },
   {
     category: "Herramientas",
-    items: ["Git", "Docker", "Figma", "Vercel", "Supabase", "Render",],
+    items: ["Git", "Docker", "Figma", "Vercel", "Supabase", "Render"],
   },
 ];
 
@@ -81,8 +81,19 @@ export const PROJECTS = [
     title: "GestorIA",
     desc: "Plataforma de automatización documental. Integra arquitectura RAG, LLMs locales y procesamiento asíncrono de correos.",
     stack: ["Python", "FastAPI", "React", "PostgreSQL"],
-    demoLink: "#",
+    //demoLink: "#",
     githubLink: "https://github.com/pvmanuel8",
+  },
+  {
+    n: "02",
+    bg: "linear-gradient(135deg,#0F172A,#1E293B)",
+    image: "/assets/tictactoe.png",
+    tag: "Sockets & Concurrencia",
+    title: "TicTacToe PSP",
+    desc: "Aplicación de Tres en Raya multijugador en tiempo real con arquitectura cliente-servidor TCP, corrutinas en Kotlin y UI reactiva con Jetpack Compose.",
+    stack: ["Kotlin", "Sockets TCP", "Jetpack Compose", "Coroutines", "StateFlow", "JSON"],
+    //demoLink: "https://youtu.be/LHxcgDymrro",
+    githubLink: "https://github.com/pvmanuel8/TicTacToePSP",
   },
 ];
 
