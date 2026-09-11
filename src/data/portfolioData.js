@@ -51,7 +51,7 @@ export const TERM_CODE = [
 // Estadísticas que se muestran en la sección "Sobre mí"
 export const STATS = [
   { number: "<1", label: "AÑO DE EXPERIENCIA" },
-  { number: "2", label: "PROYECTOS ENTREGADOS" },
+  { number: "3", label: "PROYECTOS ENTREGADOS" },
   { number: "30", label: "PERSONAS MENTORIZADAS" }
 ];
 
@@ -63,11 +63,11 @@ export const STACK_GROUPS = [
   },
   {
     category: "Backend",
-    items: ["Java", "Kotlin", "Python", "PostgreSQL", "FastAPI", "MySQL"],
+    items: ["Python", "FastAPI", "LangGraph", "Java", "Kotlin", "PostgreSQL", "SQLite", "MySQL"],
   },
   {
     category: "Herramientas",
-    items: ["Git", "Docker", "Figma", "Vercel", "Supabase", "Render"],
+    items: ["Git", "Docker", "Twilio", "Figma", "Vercel", "Supabase", "Render"],
   },
 ];
 
@@ -94,6 +94,17 @@ export const PROJECTS = [
     stack: ["Kotlin", "Sockets TCP", "Jetpack Compose", "Coroutines", "StateFlow", "JSON"],
     //demoLink: "https://youtu.be/LHxcgDymrro",
     githubLink: "https://github.com/pvmanuel8/TicTacToePSP",
+  },
+  {
+    n: "03",
+    bg: "linear-gradient(135deg,#064E3B,#022C22)",
+    image: "/assets/whatsapp-bot.png",
+    tag: "Agentes IA & LangGraph",
+    title: "WhatsApp AI Agent",
+    desc: "Asistente inteligente para WhatsApp con LangGraph, Gemini 3.6 Flash y FastAPI. Gestiona gastos personales, listas de la compra y recordatorios proactivos.",
+    stack: ["Python", "LangGraph", "Gemini AI", "FastAPI", "Twilio", "SQLite"],
+    //demoLink: "#",
+    githubLink: "https://github.com/pvmanuel8/whatsapp-bot",
   },
 ];
 

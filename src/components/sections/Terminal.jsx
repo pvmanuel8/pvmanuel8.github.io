@@ -129,9 +129,9 @@ export default function Terminal({ onTriggerMatrix }) {
       case "stack":
         response = [
           { t: "⚡ Tech Stack Overview:", c: "var(--accent)" },
-          { t: "  • Backend:  Python, FastAPI, Java, Kotlin, PostgreSQL, MySQL, Sockets TCP", c: "var(--text)" },
+          { t: "  • Backend:  Python, FastAPI, LangGraph, Gemini AI, Java, Kotlin, PostgreSQL, SQLite", c: "var(--text)" },
           { t: "  • Frontend: React, JavaScript, Next.js, Jetpack Compose, HTML/CSS", c: "var(--text)" },
-          { t: "  • DevOps:   Docker, Git, Supabase, Vercel, Render", c: "var(--text)" },
+          { t: "  • DevOps:   Docker, Git, Twilio, Supabase, Vercel, Render", c: "var(--text)" },
         ];
         break;
 
@@ -144,6 +144,9 @@ export default function Terminal({ onTriggerMatrix }) {
           { t: "  [02] TicTacToe PSP - Tres en Raya Multijugador Cliente-Servidor", c: "var(--text)" },
           { t: "       Stack: Kotlin, Sockets TCP, Jetpack Compose, Coroutines, StateFlow", c: "var(--text-faint)" },
           { t: "       GitHub: https://github.com/pvmanuel8/TicTacToePSP", c: "var(--accent-2)" },
+          { t: "  [03] WhatsApp AI Agent - Control Personal con LangGraph & Gemini", c: "var(--text)" },
+          { t: "       Stack: Python, LangGraph, Gemini 3.6, FastAPI, Twilio, SQLite", c: "var(--text-faint)" },
+          { t: "       GitHub: https://github.com/pvmanuel8/whatsapp-bot", c: "var(--accent-2)" },
         ];
         break;
 
